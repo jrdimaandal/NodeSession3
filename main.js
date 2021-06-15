@@ -6,4 +6,4 @@ var argv = require('yargs/yargs')(process.argv.slice(2))
     .argv;
 
 const loanCalc = new LoanCalculator(argv.bankName, argv.loanAmount, argv.loanTerm);
-console.log(loanCalc.getMonthlyInstallment());
+console.log(`Monthly Installment: ${loanCalc.getMonthlyInstallment()}`);

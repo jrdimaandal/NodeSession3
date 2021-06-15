@@ -10,21 +10,23 @@ class LoanCalculator {
     }
 
     getMonthlyInstallment(){
+        let bank;
+
         switch (this.bankName) {
             case 'Metrobank':
-              const metroBankInstance = new Metrobank(this.loanAmount);
-              const mbMonthly = metroBankInstance.getMonthlyInstallment(this.loanTerm);
-              return mbMonthly;
+                bank = new Metrobank(this.loanAmount);
+                break;
             case 'BPI':
-                const BPIInstance = new BPI(this.loanAmount);
-              const bpiMonthly = BPIInstance.getMonthlyInstallment(this.loanTerm);
-              return bpiMonthly;
+                bank = new BPI(this.loanAmount);
+                break;
             case 'BDO':
-                const BDOInstance = new BDO(this.loanAmount);
-                const bdoMonthly = BDOInstance.getMonthlyInstallment(this.loanTerm);
-                return bdoMonthly;
+                bank = new BDO(this.loanAmount);
+                break;
             default:
+                return 'Bank not found!';
         }
+
+        return bank.getMonthlyInstallment(this.loanTerm);
     }
 };
 

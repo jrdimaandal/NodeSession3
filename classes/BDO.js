@@ -1,6 +1,4 @@
-
 const Bank = require('./Bank');
-
 class BDO extends Bank {
     constructor (loanAmount) {
         super(loanAmount);
